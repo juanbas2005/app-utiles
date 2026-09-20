@@ -1,0 +1,24 @@
+# Build outputs
+build/
+.gradle/
+local.properties
+captures/
+*.apk.idsig
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Tooling local (no se versiona)
+tools/jadx/
+tools/*.jar
+
+# Kotlin
+.kotlin/
+
+# Logs
+*.log
+
+# SO
+.DS_Store

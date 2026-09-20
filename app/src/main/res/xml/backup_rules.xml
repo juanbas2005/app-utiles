@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  fullBackupContent (Android < 12): NO se respalda nada. El historial USSD y
+  las cuentas Nauta no deben salir del dispositivo ni a Google Drive.
+  (Mitigación del hallazgo A-2: allowBackup=true sin reglas.)
+-->
+<full-backup-content>
+    <exclude domain="file" path="." />
+    <exclude domain="database" path="." />
+    <exclude domain="sharedpref" path="." />
+    <exclude domain="external" path="." />
+</full-backup-content>

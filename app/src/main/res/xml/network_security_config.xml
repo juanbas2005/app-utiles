@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Política de red estricta: tráfico en claro prohibido en TODA la app
+  (mitigación del hallazgo A-1: usesCleartextTraffic="true" del original).
+  Confianza: solo CAs del sistema (las CAs de usuario no son de confianza
+  para apps con targetSdk >= 24 por defecto; se deja explícito para auditoría).
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

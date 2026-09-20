@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logo vectorial minimalista de UtilEs (sustituye al asset original). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#1565C0"
+        android:pathData="M8,6h32a4,4 0,0 1,4 4v28a4,4 0,0 1,-4 4H8a4,4 0,0 1,-4 -4V10a4,4 0,0 1,4 -4z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M14,32h20v3H14zM14,26h14v3H14zM14,20h20v3H14zM14,14h8v3h-8z" />
+    <path
+        android:fillColor="#8BC34A"
+        android:pathData="M34,12l5,5 -11,11 -5,1 1,-5z" />
+</vector>
