@@ -1,6 +1,5 @@
 package cu.utiletecsa.security
 
-import android.util.Base64
 import java.security.SecureRandom
 import javax.crypto.Cipher
 import javax.crypto.spec.GCMParameterSpec
@@ -41,11 +40,9 @@ class CryptoEngine(private val keyProvider: KeyProvider) {
     fun decryptString(token: String, alias: String = DEFAULT_ALIAS): String =
         String(decrypt(token, alias), Charsets.UTF_8)
 
-    private fun b64(data: ByteArray): String =
-        Base64.encodeToString(data, Base64.NO_WRAP or Base64.NO_PADDING)
+    private fun b64(data: ByteArray): String = B64.encode(data)
 
-    private fun unb64(data: String): ByteArray =
-        Base64.decode(data, Base64.NO_WRAP or Base64.NO_PADDING)
+    private fun unb64(data: String): ByteArray = B64.decode(data)
 
     companion object {
         const val DEFAULT_ALIAS = "utiletecsa_data_key"
