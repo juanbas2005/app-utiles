@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider android:description="@string/widget_lte_description" android:minWidth="40.0dip" android:minHeight="40.0dip" android:updatePeriodMillis="0" android:initialLayout="@layout/widget_lte" android:resizeMode="horizontal|vertical" android:minResizeWidth="40.0dip" android:minResizeHeight="40.0dip" android:widgetCategory="home_screen" android:previewLayout="@layout/widget_lte" android:targetCellWidth="1" android:targetCellHeight="1"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

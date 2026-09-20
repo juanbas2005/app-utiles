@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:paddingTop="8.0dip" android:paddingBottom="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/notification_saldo_column" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_notification_saldo" android:tint="#ff4caf50" android:contentDescription="@string/notification_label_saldo" />
+        <TextView android:textSize="12.0sp" android:id="@id/notification_saldo_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="--" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Title" />
+        <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_label_saldo" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Info" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/notification_datos_column" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_notification_datos" android:tint="#ff2196f3" android:contentDescription="@string/notification_label_datos" />
+        <TextView android:textSize="12.0sp" android:id="@id/notification_datos_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="--" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Title" />
+        <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_label_datos" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Info" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/notification_sms_column" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_notification_sms" android:tint="#ffff9800" android:contentDescription="@string/notification_label_sms" />
+        <TextView android:textSize="12.0sp" android:id="@id/notification_sms_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="--" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Title" />
+        <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_label_sms" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Info" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/notification_voz_column" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <ImageView android:layout_width="20.0dip" android:layout_height="20.0dip" android:src="@drawable/ic_notification_voz" android:tint="#ff9c27b0" android:contentDescription="@string/notification_label_voz" />
+        <TextView android:textSize="12.0sp" android:id="@id/notification_voz_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="--" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Title" />
+        <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/notification_label_voz" android:maxLines="1" style="@style/TextAppearance.Compat.Notification.Info" />
+    </LinearLayout>
+</LinearLayout>

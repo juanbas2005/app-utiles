@@ -1,0 +1,35 @@
+package com.google.firebase;
+
+import com.google.firebase.components.ComponentRegistrar;
+import java.util.List;
+import java.util.concurrent.Executor;
+import kotlin.Metadata;
+
+@Metadata(d1 = {"\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0002\u0010\u0003J\u0019\u0010\u0006\u001a\f\u0012\b\u0012\u0006\u0012\u0002\b\u00030\u00050\u0004H\u0016¢\u0006\u0004\b\u0006\u0010\u0007¨\u0006\b"}, d2 = {"Lcom/google/firebase/FirebaseCommonKtxRegistrar;", "Lcom/google/firebase/components/ComponentRegistrar;", "<init>", "()V", "", "Lgv0;", "getComponents", "()Ljava/util/List;", "com.google.firebase-firebase-common"}, k = 1, mv = {2, 0, 0}, xi = 48)
+/* compiled from: r8-map-id-a2600502e373284585f18be1dd969014ce4136ee711daf2a2a8e9cf573c31dbd */
+public final class FirebaseCommonKtxRegistrar implements ComponentRegistrar {
+    public List<gv0> getComponents() {
+        Class<t30> cls = t30.class;
+        Class<h81> cls2 = h81.class;
+        fv0 a = gv0.a(new av5(cls, cls2));
+        Class<Executor> cls3 = Executor.class;
+        a.a(new zp1(new av5(cls, cls3), 1, 0));
+        a.g = xb4.R;
+        gv0 b = a.b();
+        Class<d64> cls4 = d64.class;
+        fv0 a2 = gv0.a(new av5(cls4, cls2));
+        a2.a(new zp1(new av5(cls4, cls3), 1, 0));
+        a2.g = kw5.D;
+        gv0 b2 = a2.b();
+        Class<x90> cls5 = x90.class;
+        fv0 a3 = gv0.a(new av5(cls5, cls2));
+        a3.a(new zp1(new av5(cls5, cls3), 1, 0));
+        a3.g = me6.C;
+        gv0 b3 = a3.b();
+        Class<js7> cls6 = js7.class;
+        fv0 a4 = gv0.a(new av5(cls6, cls2));
+        a4.a(new zp1(new av5(cls6, cls3), 1, 0));
+        a4.g = td0.C;
+        return sg3.E(b, b2, b3, a4.b());
+    }
+}

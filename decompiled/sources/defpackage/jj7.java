@@ -1,0 +1,93 @@
+package defpackage;
+
+/* renamed from: jj7  reason: default package */
+/* compiled from: r8-map-id-a2600502e373284585f18be1dd969014ce4136ee711daf2a2a8e9cf573c31dbd */
+public final class jj7 {
+    public final long A;
+    public final long B;
+    public final long C;
+    public final long D;
+    public final long E;
+    public final long F;
+    public final long G;
+    public final long H;
+    public final long I;
+    public final long J;
+    public final long K;
+    public final long L;
+    public final long M;
+    public final long N;
+    public final long O;
+    public final long P;
+    public final long a;
+    public final long b;
+    public final long c;
+    public final long d;
+    public final long e;
+    public final long f;
+    public final long g;
+    public final long h;
+    public final long i;
+    public final long j;
+    public final long k;
+    public final long l;
+    public final long m;
+    public final long n;
+    public final long o;
+    public final long p;
+    public final long q;
+    public final long r;
+    public final long s;
+    public final long t;
+    public final long u;
+    public final long v;
+    public final long w;
+    public final long x;
+    public final long y;
+    public final long z;
+
+    public jj7(long j2, long j3, long j4, long j5, long j6, long j7, long j8, long j9, long j10, long j11, long j12, long j13, long j14, long j15, long j16, long j17, long j18, long j19, long j20, long j21, long j22, long j23, long j24, long j25, long j26, long j27, long j28, long j29, long j30, long j31, long j32, long j33, long j34, long j35, long j36, long j37, long j38, long j39, long j40, long j41, long j42, long j43) {
+        this.a = j2;
+        this.b = j3;
+        this.c = j4;
+        this.d = j5;
+        this.e = j6;
+        this.f = j7;
+        this.g = j8;
+        this.h = j9;
+        this.i = j10;
+        this.j = j11;
+        this.k = j12;
+        this.l = j13;
+        this.m = j14;
+        this.n = j15;
+        this.o = j16;
+        this.p = j17;
+        this.q = j18;
+        this.r = j19;
+        this.s = j20;
+        this.t = j21;
+        this.u = j22;
+        this.v = j23;
+        this.w = j24;
+        this.x = j25;
+        this.y = j26;
+        this.z = j27;
+        this.A = j28;
+        this.B = j29;
+        this.C = j30;
+        this.D = j31;
+        this.E = j32;
+        this.F = j33;
+        this.G = j34;
+        this.H = j35;
+        this.I = j36;
+        this.J = j37;
+        this.K = j38;
+        this.L = j39;
+        this.M = j40;
+        this.N = j41;
+        this.O = j42;
+        this.P = j43;
+    }
+}

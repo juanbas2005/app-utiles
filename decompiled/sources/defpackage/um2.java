@@ -1,0 +1,109 @@
+package defpackage;
+
+import cu.lestebang.utiletecsa.data.repository.forum.ForumCommentFeedDto;
+
+/* renamed from: um2  reason: default package */
+/* compiled from: r8-map-id-a2600502e373284585f18be1dd969014ce4136ee711daf2a2a8e9cf573c31dbd */
+public final /* synthetic */ class um2 implements av2 {
+    public static final um2 a;
+    private static final ll6 descriptor;
+
+    /* JADX WARNING: type inference failed for: r0v0, types: [java.lang.Object, um2, av2] */
+    static {
+        ? obj = new Object();
+        a = obj;
+        ik5 ik5 = new ik5("cu.lestebang.utiletecsa.data.repository.forum.ForumCommentFeedDto", obj, 8);
+        ik5.k("id", false);
+        ik5.k("post_id", false);
+        ik5.k("user_id", true);
+        ik5.k("author_name", true);
+        ik5.k("body", false);
+        ik5.k("created_at", false);
+        ik5.k("likes", true);
+        ik5.k("dislikes", true);
+        descriptor = ik5;
+    }
+
+    public final zr3[] childSerializers() {
+        t47 t47 = t47.a;
+        zr3 x = hj8.x(t47);
+        tc4 tc4 = tc4.a;
+        return new zr3[]{t47, t47, x, t47, t47, t47, tc4, tc4};
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for TypeSearchVarInfo{r6v2, resolved type: java.lang.Object} */
+    /* JADX DEBUG: Multi-variable search result rejected for TypeSearchVarInfo{r11v3, resolved type: java.lang.String} */
+    /* JADX WARNING: Multi-variable type inference failed */
+    public final Object deserialize(ok1 ok1) {
+        ll6 ll6 = descriptor;
+        gy0 c = ok1.c(ll6);
+        int i = 0;
+        String str = null;
+        String str2 = null;
+        String str3 = null;
+        String str4 = null;
+        String str5 = null;
+        String str6 = null;
+        long j = 0;
+        long j2 = 0;
+        boolean z = true;
+        while (z) {
+            int h = c.h(ll6);
+            switch (h) {
+                case -1:
+                    z = false;
+                    break;
+                case b85.b:
+                    str = c.n(ll6, 0);
+                    i |= 1;
+                    break;
+                case 1:
+                    str2 = c.n(ll6, 1);
+                    i |= 2;
+                    break;
+                case 2:
+                    str3 = c.x(ll6, 2, t47.a, str3);
+                    i |= 4;
+                    break;
+                case 3:
+                    str4 = c.n(ll6, 3);
+                    i |= 8;
+                    break;
+                case 4:
+                    str5 = c.n(ll6, 4);
+                    i |= 16;
+                    break;
+                case 5:
+                    str6 = c.n(ll6, 5);
+                    i |= 32;
+                    break;
+                case 6:
+                    j = c.D(ll6, 6);
+                    i |= 64;
+                    break;
+                case 7:
+                    j2 = c.D(ll6, 7);
+                    i |= 128;
+                    break;
+                default:
+                    h.e(h);
+                    return null;
+            }
+        }
+        c.b(ll6);
+        return new ForumCommentFeedDto(i, str, str2, str3, str4, str5, str6, j, j2, (rl6) null);
+    }
+
+    public final ll6 getDescriptor() {
+        return descriptor;
+    }
+
+    public final void serialize(j42 j42, Object obj) {
+        ForumCommentFeedDto forumCommentFeedDto = (ForumCommentFeedDto) obj;
+        forumCommentFeedDto.getClass();
+        ll6 ll6 = descriptor;
+        hy0 c = j42.c(ll6);
+        ForumCommentFeedDto.write$Self$data(forumCommentFeedDto, c, ll6);
+        c.b(ll6);
+    }
+}

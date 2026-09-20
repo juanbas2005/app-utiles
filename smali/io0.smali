@@ -1,0 +1,350 @@
+.class public final Lio0;
+.super Laf3;
+.source "r8-map-id-a2600502e373284585f18be1dd969014ce4136ee711daf2a2a8e9cf573c31dbd"
+
+
+# virtual methods
+.method public final a(Lsl4;)Lvw3;
+    .locals 0
+
+    .line 1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 2
+    .line 3
+    .line 4
+    invoke-interface {p1}, Lsl4;->g()Lfv3;
+
+    .line 5
+    .line 6
+    .line 7
+    move-result-object p0
+
+    .line 8
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    .line 9
+    .line 10
+    .line 11
+    sget-object p1, Lro5;->C:Lro5;
+
+    .line 12
+    .line 13
+    invoke-virtual {p0, p1}, Lfv3;->t(Lro5;)Lfu6;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object p0
+
+    .line 17
+    return-object p0
+    .line 18
+    .line 19
+    .line 20
+    .line 21
+    .line 22
+    .line 23
+    .line 24
+    .line 25
+    .line 26
+    .line 27
+    .line 28
+    .line 29
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .locals 3
+
+    .line 1
+    iget-object p0, p0, Le21;->a:Ljava/lang/Object;
+
+    .line 2
+    .line 3
+    move-object v0, p0
+
+    .line 4
+    check-cast v0, Ljava/lang/Character;
+
+    .line 5
+    .line 6
+    invoke-virtual {v0}, Ljava/lang/Character;->charValue()C
+
+    .line 7
+    .line 8
+    .line 9
+    move-result v0
+
+    .line 10
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    .line 11
+    .line 12
+    .line 13
+    move-result-object v0
+
+    .line 14
+    check-cast p0, Ljava/lang/Character;
+
+    .line 15
+    .line 16
+    invoke-virtual {p0}, Ljava/lang/Character;->charValue()C
+
+    .line 17
+    .line 18
+    .line 19
+    move-result p0
+
+    .line 20
+    packed-switch p0, :pswitch_data_0
+
+    .line 21
+    .line 22
+    .line 23
+    :pswitch_0
+    invoke-static {p0}, Ljava/lang/Character;->getType(C)I
+
+    .line 24
+    .line 25
+    .line 26
+    move-result v1
+
+    .line 27
+    int-to-byte v1, v1
+
+    .line 28
+    if-eqz v1, :cond_0
+
+    .line 29
+    .line 30
+    const/16 v2, 0xd
+
+    .line 31
+    .line 32
+    if-eq v1, v2, :cond_0
+
+    .line 33
+    .line 34
+    const/16 v2, 0xe
+
+    .line 35
+    .line 36
+    if-eq v1, v2, :cond_0
+
+    .line 37
+    .line 38
+    const/16 v2, 0xf
+
+    .line 39
+    .line 40
+    if-eq v1, v2, :cond_0
+
+    .line 41
+    .line 42
+    const/16 v2, 0x10
+
+    .line 43
+    .line 44
+    if-eq v1, v2, :cond_0
+
+    .line 45
+    .line 46
+    const/16 v2, 0x12
+
+    .line 47
+    .line 48
+    if-eq v1, v2, :cond_0
+
+    .line 49
+    .line 50
+    const/16 v2, 0x13
+
+    .line 51
+    .line 52
+    if-eq v1, v2, :cond_0
+
+    .line 53
+    .line 54
+    invoke-static {p0}, Ljava/lang/String;->valueOf(C)Ljava/lang/String;
+
+    .line 55
+    .line 56
+    .line 57
+    move-result-object p0
+
+    .line 58
+    goto :goto_0
+
+    .line 59
+    :cond_0
+    const-string p0, "?"
+
+    .line 60
+    .line 61
+    goto :goto_0
+
+    .line 62
+    :pswitch_1
+    const-string p0, "\\r"
+
+    .line 63
+    .line 64
+    goto :goto_0
+
+    .line 65
+    :pswitch_2
+    const-string p0, "\\f"
+
+    .line 66
+    .line 67
+    goto :goto_0
+
+    .line 68
+    :pswitch_3
+    const-string p0, "\\n"
+
+    .line 69
+    .line 70
+    goto :goto_0
+
+    .line 71
+    :pswitch_4
+    const-string p0, "\\t"
+
+    .line 72
+    .line 73
+    goto :goto_0
+
+    .line 74
+    :pswitch_5
+    const-string p0, "\\b"
+
+    .line 75
+    .line 76
+    :goto_0
+    filled-new-array {v0, p0}, [Ljava/lang/Object;
+
+    .line 77
+    .line 78
+    .line 79
+    move-result-object p0
+
+    .line 80
+    const/4 v0, 0x2
+
+    .line 81
+    invoke-static {p0, v0}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
+
+    .line 82
+    .line 83
+    .line 84
+    move-result-object p0
+
+    .line 85
+    const-string v0, "\\u%04X (\'%s\')"
+
+    .line 86
+    .line 87
+    invoke-static {v0, p0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    .line 88
+    .line 89
+    .line 90
+    move-result-object p0
+
+    .line 91
+    return-object p0
+
+    .line 92
+    nop
+
+    .line 93
+    :pswitch_data_0
+    .packed-switch 0x8
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_0
+        :pswitch_2
+        :pswitch_1
+    .end packed-switch
+    .line 94
+    .line 95
+    .line 96
+    .line 97
+    .line 98
+    .line 99
+    .line 100
+    .line 101
+    .line 102
+    .line 103
+    .line 104
+    .line 105
+    .line 106
+    .line 107
+    .line 108
+    .line 109
+    .line 110
+    .line 111
+    .line 112
+    .line 113
+    .line 114
+    .line 115
+    .line 116
+    .line 117
+    .line 118
+    .line 119
+    .line 120
+    .line 121
+    .line 122
+    .line 123
+    .line 124
+    .line 125
+    .line 126
+    .line 127
+    .line 128
+    .line 129
+    .line 130
+    .line 131
+    .line 132
+    .line 133
+    .line 134
+    .line 135
+    .line 136
+    .line 137
+    .line 138
+    .line 139
+    .line 140
+    .line 141
+    .line 142
+    .line 143
+    .line 144
+    .line 145
+    .line 146
+    .line 147
+    .line 148
+    .line 149
+    .line 150
+    .line 151
+    .line 152
+    .line 153
+    .line 154
+    .line 155
+    .line 156
+    .line 157
+    .line 158
+    .line 159
+    .line 160
+    .line 161
+    .line 162
+    .line 163
+    .line 164
+    .line 165
+    .line 166
+    .line 167
+    .line 168
+    .line 169
+    .line 170
+    .line 171
+    .line 172
+.end method

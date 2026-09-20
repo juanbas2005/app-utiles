@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/widget_root" android:background="@null" android:padding="2.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/widget_icon" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_widget_saldo" android:contentDescription="@string/widget_saldo_label" />
+    <TextView android:textSize="12.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/widget_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/widget_value_placeholder" android:maxLines="1" />
+</LinearLayout>

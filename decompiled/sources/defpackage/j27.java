@@ -1,0 +1,185 @@
+package defpackage;
+
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+/* renamed from: j27  reason: default package */
+/* compiled from: r8-map-id-a2600502e373284585f18be1dd969014ce4136ee711daf2a2a8e9cf573c31dbd */
+public final class j27 {
+    public static final gq0 A = new gq0(g, uq4.e("EnumEntries"));
+    public static final up2 a;
+    public static final up2 b;
+    public static final up2 c;
+    public static final up2 d;
+    public static final up2 e;
+    public static final up2 f;
+    public static final up2 g;
+    public static final up2 h;
+    public static final gq0 i = za5.e("Unit");
+    public static final gq0 j = za5.e("Any");
+    public static final gq0 k = za5.e("Enum");
+    public static final gq0 l = za5.e("Array");
+    public static final gq0 m;
+    public static final gq0 n;
+    public static final gq0 o;
+    public static final gq0 p;
+    public static final gq0 q;
+    public static final gq0 r;
+    public static final gq0 s;
+    public static final gq0 t = za5.e("String");
+    public static final gq0 u = za5.i("KFunction");
+    public static final Set v;
+    public static final Set w;
+    public static final gq0 x = za5.f("MutableList");
+    public static final gq0 y = za5.f("MutableSet");
+    public static final gq0 z;
+
+    static {
+        up2 up2 = new up2("kotlin");
+        a = up2;
+        up2 a2 = up2.a(uq4.e("reflect"));
+        b = a2;
+        up2.a(uq4.e("experimental"));
+        up2 a3 = up2.a(uq4.e("collections"));
+        c = a3;
+        up2.a(uq4.e("sequences"));
+        up2 a4 = up2.a(uq4.e("ranges"));
+        d = a4;
+        up2 a5 = up2.a(uq4.e("jvm"));
+        up2.a(uq4.e("js"));
+        up2.a(uq4.e("annotations")).a(uq4.e("jvm"));
+        a5.a(uq4.e("internal"));
+        a5.a(uq4.e("functions"));
+        up2 a6 = up2.a(uq4.e("annotation"));
+        e = a6;
+        up2 a7 = up2.a(uq4.e("internal"));
+        a7.a(uq4.e("ir"));
+        up2 a8 = up2.a(uq4.e("coroutines"));
+        f = a8;
+        a8.a(uq4.e("intrinsics"));
+        g = up2.a(uq4.e("enums"));
+        up2.a(uq4.e("contracts"));
+        up2 a9 = up2.a(uq4.e("concurrent")).a(uq4.e("atomics"));
+        h = a9;
+        up2.a(uq4.e("test"));
+        up2.a(uq4.e("text"));
+        qs.r1(new up2[]{up2, a3, a4, a6});
+        qs.r1(new up2[]{up2, a3, a4, a6, a2, a7, a8, a9});
+        za5.e("Nothing");
+        za5.e("Annotation");
+        gq0 e2 = za5.e("Boolean");
+        m = e2;
+        gq0 e3 = za5.e("Char");
+        gq0 e4 = za5.e("Byte");
+        gq0 e5 = za5.e("Short");
+        gq0 e6 = za5.e("Int");
+        n = e6;
+        gq0 e7 = za5.e("Long");
+        o = e7;
+        gq0 e8 = za5.e("Float");
+        gq0 e9 = za5.e("Double");
+        p = za5.j(e4);
+        q = za5.j(e5);
+        r = za5.j(e6);
+        s = za5.j(e7);
+        za5.e("CharSequence");
+        za5.e("Throwable");
+        za5.e("Cloneable");
+        za5.i("KProperty");
+        za5.i("KMutableProperty");
+        za5.i("KProperty0");
+        za5.i("KMutableProperty0");
+        za5.i("KProperty1");
+        za5.i("KMutableProperty1");
+        za5.i("KProperty2");
+        za5.i("KMutableProperty2");
+        za5.i("KClass");
+        za5.i("KCallable");
+        za5.i("KType");
+        dh4.I(uq4.e("Sequence")).a.c();
+        za5.e("Comparable");
+        za5.e("Number");
+        za5.e("Function");
+        dh4.I(uq4.e("SuspendFunction")).a.c();
+        Set r1 = qs.r1(new gq0[]{e2, e3, e4, e5, e6, e7, e8, e9});
+        v = r1;
+        qs.r1(new gq0[]{e4, e5, e6, e7});
+        Iterable iterable = r1;
+        int F = tf4.F(et0.e0(iterable, 10));
+        int i2 = 16;
+        if (F < 16) {
+            F = 16;
+        }
+        LinkedHashMap linkedHashMap = new LinkedHashMap(F);
+        for (Object next : iterable) {
+            linkedHashMap.put(next, za5.h(((gq0) next).f()));
+        }
+        za5.g(linkedHashMap);
+        Set r12 = qs.r1(new gq0[]{p, q, r, s});
+        w = r12;
+        Iterable iterable2 = r12;
+        int F2 = tf4.F(et0.e0(iterable2, 10));
+        if (F2 >= 16) {
+            i2 = F2;
+        }
+        LinkedHashMap linkedHashMap2 = new LinkedHashMap(i2);
+        for (Object next2 : iterable2) {
+            linkedHashMap2.put(next2, za5.h(((gq0) next2).f()));
+        }
+        za5.g(linkedHashMap2);
+        Set set = v;
+        Iterable iterable3 = w;
+        LinkedHashSet o2 = wn6.o(set, iterable3);
+        gq0 gq0 = t;
+        wn6.p(o2, gq0);
+        up2 up22 = f;
+        uq4 e10 = uq4.e("Continuation");
+        up22.getClass();
+        up2 up23 = up2.c;
+        dh4.I(e10).a.c();
+        dh4.I(uq4.e("CoroutineContext")).a.c();
+        za5.f("Iterator");
+        za5.f("Iterable");
+        za5.f("Collection");
+        za5.f("List");
+        za5.f("ListIterator");
+        za5.f("Set");
+        gq0 f2 = za5.f("Map");
+        za5.f("AbstractMap");
+        za5.f("MutableIterator");
+        za5.f("CharIterator");
+        za5.f("MutableIterable");
+        za5.f("MutableCollection");
+        za5.f("MutableListIterator");
+        gq0 f3 = za5.f("MutableMap");
+        z = f3;
+        f2.d(uq4.e("Entry"));
+        f3.d(uq4.e("MutableEntry"));
+        za5.e("Result");
+        up2 up24 = d;
+        uq4 e11 = uq4.e("IntRange");
+        up24.getClass();
+        dh4.I(e11).a.c();
+        dh4.I(uq4.e("LongRange")).a.c();
+        dh4.I(uq4.e("CharRange")).a.c();
+        up2 up25 = e;
+        uq4 e12 = uq4.e("AnnotationRetention");
+        up25.getClass();
+        dh4.I(e12).a.c();
+        dh4.I(uq4.e("AnnotationTarget")).a.c();
+        za5.e("DeprecationLevel");
+        gq0 d2 = za5.d("AtomicBoolean");
+        gq0 d3 = za5.d("AtomicInt");
+        gq0 d4 = za5.d("AtomicLong");
+        za5.d("AtomicReference");
+        yb5 yb5 = new yb5(m, d2);
+        gq0 gq02 = n;
+        yb5 yb52 = new yb5(gq02, d3);
+        gq0 gq03 = o;
+        sf4.V(yb5, yb52, new yb5(gq03, d4));
+        za5.d("AtomicArray");
+        sf4.V(new yb5(gq02, za5.d("AtomicIntArray")), new yb5(gq03, za5.d("AtomicLongArray")));
+        wn6.p(wn6.p(wn6.p(wn6.p(wn6.o(set, iterable3), gq0), i), j), k);
+    }
+}

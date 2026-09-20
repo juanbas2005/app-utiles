@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/widget_root" android:background="@null" android:padding="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:id="@id/widget_saldo_icon" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/ic_widget_saldo" android:contentDescription="@string/widget_saldo_label" />
+            <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/widget_saldo_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/widget_value_placeholder" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:id="@id/widget_datos_icon" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/ic_widget_datos" android:contentDescription="@string/widget_datos_label" />
+            <TextView android:textSize="11.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/widget_datos_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/widget_datos_placeholder" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:id="@id/widget_voz_icon" android:layout_width="14.0dip" android:layout_height="14.0dip" android:src="@drawable/ic_widget_voz" android:contentDescription="@string/widget_voz_label" />
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/widget_voz_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="@string/widget_voz_placeholder" android:maxLines="1" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <ImageView android:id="@id/widget_sms_icon" android:layout_width="14.0dip" android:layout_height="14.0dip" android:src="@drawable/ic_widget_sms" android:contentDescription="@string/widget_sms_label" />
+            <TextView android:textSize="10.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:id="@id/widget_sms_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="@string/widget_sms_placeholder" android:maxLines="1" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

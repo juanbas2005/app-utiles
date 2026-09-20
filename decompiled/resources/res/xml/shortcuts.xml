@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut android:icon="@drawable/ic_shortcut_saldo" android:enabled="true" android:shortcutId="saldo" android:shortcutShortLabel="@string/shortcut_saldo_short_label" android:shortcutLongLabel="@string/shortcut_saldo_long_label">
+        <intent android:action="cu.lestebang.utiletecsa.action.USSD_SHORTCUT">
+            <extra android:name="ussd_action" android:value="saldo" />
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_shortcut_datos" android:enabled="true" android:shortcutId="datos" android:shortcutShortLabel="@string/shortcut_datos_short_label" android:shortcutLongLabel="@string/shortcut_datos_long_label">
+        <intent android:action="cu.lestebang.utiletecsa.action.USSD_SHORTCUT">
+            <extra android:name="ussd_action" android:value="datos" />
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_shortcut_voz" android:enabled="true" android:shortcutId="voz" android:shortcutShortLabel="@string/shortcut_voz_short_label" android:shortcutLongLabel="@string/shortcut_voz_long_label">
+        <intent android:action="cu.lestebang.utiletecsa.action.USSD_SHORTCUT">
+            <extra android:name="ussd_action" android:value="voz" />
+        </intent>
+    </shortcut>
+    <shortcut android:icon="@drawable/ic_shortcut_sms" android:enabled="true" android:shortcutId="sms" android:shortcutShortLabel="@string/shortcut_sms_short_label" android:shortcutLongLabel="@string/shortcut_sms_long_label">
+        <intent android:action="cu.lestebang.utiletecsa.action.USSD_SHORTCUT">
+            <extra android:name="ussd_action" android:value="sms" />
+        </intent>
+    </shortcut>
+</shortcuts>

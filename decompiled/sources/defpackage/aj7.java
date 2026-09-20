@@ -1,0 +1,14 @@
+package defpackage;
+
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
+
+/* renamed from: aj7  reason: default package */
+/* compiled from: r8-map-id-a2600502e373284585f18be1dd969014ce4136ee711daf2a2a8e9cf573c31dbd */
+public interface aj7 {
+    ColorStateList getSupportButtonTintList();
+
+    void setSupportButtonTintList(ColorStateList colorStateList);
+
+    void setSupportButtonTintMode(PorterDuff.Mode mode);
+}
