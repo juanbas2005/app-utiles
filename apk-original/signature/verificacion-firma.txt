@@ -1,0 +1,11 @@
+== Verificación de firma: apk-original/UtilEs.apk (22,407,919 bytes) ==
+[v1] AUSENTE: no hay MANIFEST.MF/.SF/.RSA en META-INF → sin firma JAR (v1)
+[bloque] APK Signing Block presente desde offset 22299268
+[bloque]   par id=0x0000060f (desconocido 0x0000060f) valor=0 bytes en 22299284
+[bloque]   par id=0x7109871a (v2) valor=1543 bytes en 22299292
+[bloque] MALFORMADO: par id=0x00000048 con len=1392508928 fuera de límites en 22300836
+[v2] ERROR de análisis del valor: valor v2: no quedan bytes para la lista de certificados (formato no estándar)
+[v2]   → el bloque con ID v2 NO sigue el formato oficial de apksig.
+
+RESULTADO: ningún esquema de firma estándar (v1/v2/v3) pasa la verificación apksig.
+→ apksigner verify reportaría el APK como sin firma válida.

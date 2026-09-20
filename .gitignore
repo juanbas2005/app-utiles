@@ -1,0 +1,37 @@
+# --- Sistema / IDE ---
+.DS_Store
+Thumbs.db
+.idea/
+*.iml
+.vscode/
+*.swp
+*~
+
+# --- Build / Gradle ---
+.gradle/
+build/
+**/build/
+local.properties
+.kotlin/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# --- Logs / temporales ---
+*.log
+hs_err_pid*
+crash.dmp
+
+# --- Firma de debug generada en local (NUNCA commitear claves) ---
+*.jks
+*.keystore
+keystore.properties
+signing/
+
+# --- Salida de descompilación regenerable (se mantiene, ver README) ---
+# Se conserva decompiled/ y smali/ como evidencia; no se ignora.
+
+# --- Android ---
+*.apk.idr
+.cxx
+ndk-binaries/
