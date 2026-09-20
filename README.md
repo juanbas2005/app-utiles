@@ -25,7 +25,7 @@ precios, y widgets de estado.
 | `smali/` | Desensamblado Dalvik (apktool d) como referencia |
 | `app/` | **Proyecto Gradle modular** de la reconstrucción (este README lo detalla) |
 | `features/` — dentro de `app/` | 15 módulos de features con el código decompilado de referencia |
-| `.github/workflows/build.yml` | CI: integridad del APK original, build, tests, releases |
+| `ci/build.yml` | CI: integridad del APK original, build, tests, releases (en staging; activar con `cp ci/build.yml .github/workflows/build.yml` — ver `ci/README.md`) |
 
 ## Estructura del proyecto `app/`
 

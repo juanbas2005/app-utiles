@@ -89,7 +89,10 @@ de **F-01**), el propietario debe:
    `187c763aad58634aaf6c65e8043525c159d6afe061c1ec3e51c962b4ca6519b8`;
    puede mantenerse si se exporta el .keystore original, o renovarse).
 
-## 7. CI (`.github/workflows/build.yml`)
+## 7. CI (`ci/build.yml` → `.github/workflows/build.yml`)
+
+> El pipeline está en staging en `ci/build.yml` porque la cuenta de CI no
+> tiene permiso `workflows`; activación en un paso en `ci/README.md`.
 
 | Job | Qué hace |
 |---|---|
