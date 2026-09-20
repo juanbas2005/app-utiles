@@ -6,7 +6,6 @@
 -->
 <network-security-config>
     <base-config cleartextTrafficPermitted="false">
-        <tls-feature android:name="certificatesPerDomain" android:enabled="true" />
         <trust-anchors>
             <certificates src="system" />
         </trust-anchors>
