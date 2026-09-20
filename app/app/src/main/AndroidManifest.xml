@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Manifiesto DURADO de la reconstrucción (diferencias vs el original en
+  SECURITY.md; tabla completa en ARCHITECTURE.md §7):
+
+    F-02  usesCleartextTraffic=false + networkSecurityConfig (TLS 1.2+)
+    F-03  solo la mínima de permisos para el shell (los permisos de
+          SMS/llamadas/contactos vuelven CON las features que los usen,
+          y solo como <uses-permission> justificado; ver F-03)
+    F-04  allowBackup=false (sin backup de transferPin/cookies Nauta)
+    F-05  UssdShortcutActivity NO se incluye: al reconstruirla, exported=false
+          + intent-filter solo de action (ver F-05)
+    F-08  DownloadApkReceiver NO se incluye: la auto-actualización pasa por
+          cu.lestebang.utiletecsa.security.UpdatePolicy (ver F-08)
+    F-10  receptores PHONE_STATE NO se incluyen hasta reconstruir la feature
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:name=".UtilEsApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UtilEs"
+        android:enableOnBackInvokedCallback="true"
+        android:usesCleartextTraffic="false"
+        android:networkSecurityConfig="@xml/network_security_config"
+        tools:targetApi="37">
+
+        <!--
+          Shell reconstruido: MainActivity placeholder. Cuando las
+          :features/* se reconstruyan con el source, el grafo de navegación
+          (HomeNavGraph/AuthNavGraph/…) vuelve aquí.
+        -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

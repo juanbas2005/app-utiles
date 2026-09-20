@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Tema mínimo del shell reconstruido. El original usaba
+      Theme.Jetpack.Splash (screen de Compose); se recuperará con el source.
+    -->
+    <style name="Theme.UtilEs" parent="@android:style/Theme.Material.Light.NoActionBar" />
+</resources>

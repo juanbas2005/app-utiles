@@ -1,0 +1,27 @@
+# Catálogo de versiones — UtilEs (reconstrucción modular)
+#
+# Stack "estable" a 2026-09-20 (ver BUILD.md §2):
+#   * AGP 9.2.1  → el mismo con el que se construyó el APK original
+#   * Gradle 9.4.1 → versión por defecto/de mínima de AGP 9.2
+#   * Kotlin 2.2.10 → KGP por defecto del Kotlin integrado (built-in) de AGP 9.2.
+#     No se declara el plugin org.jetbrains.kotlin.android: desde AGP 9.0 el
+#     soporte Kotlin es integrado (https://developer.android.com/build/migrate-to-built-in-kotlin).
+#
+# Las versiones de dependencias de tiempo de ejecución se mantienen en la
+# última línea estable compatible con compileSdk 37.
+[versions]
+agp = "9.2.1"
+junit = "4.13.2"
+androidxCoreKtx = "1.16.0"
+androidxAppcompat = "1.7.1"
+material = "1.12.0"
+
+[libraries]
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCoreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }

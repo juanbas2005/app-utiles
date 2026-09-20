@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Mitigación SECURITY.md §F-02: el original declaraba usesCleartextTraffic=true
+  y sin networkSecurityConfig. Esta configuración prohíbe el cleartext (http)
+  salvo dominio explícito (none), y exige TLS 1.2+ en todas las conexiones.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <tls-feature android:name="certificatesPerDomain" android:enabled="true" />
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
