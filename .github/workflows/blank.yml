@@ -1,0 +1,203 @@
+# =============================================================================
+# CI de UtilEs — auditoría de seguridad y reconstrucción modular
+#
+# Jobs:
+#   1. apk-original-integrity  → integridad + verificación de firma del APK
+#                                original (SECURITY.md §F-01, §F-08)
+#   2. build                   → compila los módulos, ejecuta tests, verifica
+#                                la firma de cada APK de salida y sube
+#                                artefactos (4 APK: 3 ABIs + universal)
+#   3. release                 → publica los APK en GitHub Release (tags v*)
+#
+# Disparadores: push a main, pull_request, tags v* y workflow_dispatch.
+# =============================================================================
+name: build
+
+on:
+  push:
+    branches: [ main ]
+    tags: [ "v*" ]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  APK_PATH: apk-original/UtilEs.apk
+  # El APK original NO tiene firma apksig estándar (SECURITY.md §F-01):
+  # el PoC audit/verify_signature.py debe salir con código 2 y el marcador.
+  # Si la app se re-firma con apksigner estándar, invertir la expectativa
+  # aquí (código 0, "al menos una firma estándar válida").
+  EXPECT_VERIFY_EXIT: "2"
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # 1) Integridad del APK original: sha256 + esquema de firma
+  # ---------------------------------------------------------------------------
+  apk-original-integrity:
+    name: Integridad del APK original
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verificar SHA-256 del APK original
+        run: |
+          cd apk-original
+          sha256sum -c UtilEs.apk.sha256
+
+      - name: Instalar dependencias del PoC de firma
+        run: pip3 install --break-system-packages cryptography
+
+      - name: Verificar esquema de firma (apksig v1/v2/v3)
+        id: verify
+        run: |
+          set +e
+          python3 audit/verify_signature.py "$APK_PATH" | tee firma.txt
+          rc=${PIPESTATUS[0]}
+          set -e
+          echo "exit_code=$rc" >> "$GITHUB_OUTPUT"
+          echo "---- salida del PoC ----"
+          cat firma.txt
+          echo "rc=$rc expected=${EXPECT_VERIFY_EXIT}"
+          [ "$rc" = "${EXPECT_VERIFY_EXIT}" ]
+
+      - name: Afirmar el resultado esperado (F-01)
+        run: |
+          if [ "${{ steps.verify.outputs.exit_code }}" = "2" ]; then
+            grep -q "ningún esquema de firma estándar" firma.txt \
+              && echo "OK: F-01 vigente — el APK original no tiene firma apksig estándar." \
+              || { echo "FALLO: salida 2 sin el marcador esperado."; exit 1; }
+          else
+            echo "El APK original pasó la verificación estándar (F-01 mitigado)."
+          fi
+
+      - name: Subir evidencia de firma
+        uses: actions/upload-artifact@v4
+        with:
+          name: firma-original
+          path: firma.txt
+
+  # ---------------------------------------------------------------------------
+  # 2) Build de la reconstrucción modular
+  # ---------------------------------------------------------------------------
+  build:
+    name: Build modular (AGP 9.2.1)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar JDK 21 (Temurin)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Setup Android
+        uses: android-actions/setup-android@v3
+
+      - name: Keystore de CI (secreto o generado)
+        env:
+          CI_KEYSTORE_BASE64: ${{ secrets.CI_KEYSTORE_BASE64 }}
+          CI_KEYSTORE_PASSWORD: ${{ secrets.CI_KEYSTORE_PASSWORD }}
+          CI_KEY_ALIAS: ${{ secrets.CI_KEY_ALIAS }}
+          CI_KEY_PASSWORD: ${{ secrets.CI_KEY_PASSWORD }}
+        run: |
+          set -euo pipefail
+          mkdir -p app/signing
+          if [ -n "${CI_KEYSTORE_BASE64:-}" ] && [ -n "${CI_KEYSTORE_PASSWORD:-}" ]; then
+            # Keystore real del propietario (recomendado para releases).
+            echo "${CI_KEYSTORE_BASE64}" | base64 -d > app/signing/utiles-ci.keystore
+            echo "Usando keystore de secretos."
+            echo "CI_KEYSTORE_PASSWORD=${CI_KEYSTORE_PASSWORD}" >> "$GITHUB_ENV"
+            echo "CI_KEY_PASSWORD=${CI_KEY_PASSWORD:-${CI_KEYSTORE_PASSWORD}}" >> "$GITHUB_ENV"
+          else
+            # Keystore desechable de CI: permite que el build firme y
+            # apksigner verifique; NO es la clave de producción.
+            PASS=$(head -c 16 /dev/urandom | od -An -tx1 | tr -d ' \n')
+            keytool -genkeypair -v \
+              -keystore app/signing/utiles-ci.keystore \
+              -storetype PKCS12 \
+              -storepass "$PASS" -keypass "$PASS" \
+              -alias "${CI_KEY_ALIAS:-utiles-ci}" \
+              -keyalg RSA -keysize 2048 -validity 10950 \
+              -dname "CN=UtilEs CI, OU=DevOps, O=CUSOFT, L=La Habana, C=CU"
+            echo "Keystore de CI generado (desechable)."
+            echo "CI_KEYSTORE_PASSWORD=$PASS" >> "$GITHUB_ENV"
+            echo "CI_KEY_PASSWORD=$PASS" >> "$GITHUB_ENV"
+          fi
+          echo "CI_KEY_ALIAS=${CI_KEY_ALIAS:-utiles-ci}" >> "$GITHUB_ENV"
+
+      - name: Build y tests (Gradle 9.4.1)
+        uses: gradle/gradle-build-action@v3
+        with:
+          arguments: assembleRelease test
+
+      - name: Verificar firma de cada APK de salida (apksigner)
+        run: |
+          set -euo pipefail
+          APKSIGNER=$(command -v apksigner || ls -d "${ANDROID_HOME:-$HOME/Android/Sdk}"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)
+          [ -n "$APKSIGNER" ] || { echo "apksigner no encontrado en PATH ni en build-tools"; exit 1; }
+          find app/app/build/outputs/apk/release -name "*.apk" | sort | while read -r apk; do
+            echo "== apksigner verify: $apk"
+            "$APKSIGNER" verify --verbose --print-certs "$apk"
+          done
+
+      - name: Listar APKs generados
+        run: |
+          ls -la app/app/build/outputs/apk/release/
+          sha256sum app/app/build/outputs/apk/release/*.apk > apk-release.sha256
+          cat apk-release.sha256
+
+      - name: Subir APKs como artefactos
+        uses: actions/upload-artifact@v4
+        with:
+          name: apks-release
+          path: |
+            app/app/build/outputs/apk/release/*.apk
+            apk-release.sha256
+
+  # ---------------------------------------------------------------------------
+  # 3) Release en GitHub (solo tags v*)
+  # ---------------------------------------------------------------------------
+  release:
+    name: Publicar GitHub Release
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Descargar APKs
+        uses: actions/download-artifact@v4
+        with:
+          name: apks-release
+          path: release-apks
+
+      - name: Crear release y subir APKs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          cd release-apks
+          TAG="${GITHUB_REF#refs/tags/}"
+          {
+            echo "## UtilEs ${TAG} — reconstrucción de seguridad"
+            echo
+            echo "APKs por ABI + universal (ver \`BUILD.md\` §4)."
+            echo
+            echo '```'
+            sha256sum *.apk
+            echo '```'
+            echo
+            echo "Detalles de la auditoría en \`SECURITY.md\`."
+            if [ -f release-notes.md ]; then
+              echo
+              cat release-notes.md
+            fi
+          } > release-notes.txt
+          gh release create "$TAG" --title "UtilEs ${TAG}" --notes-file release-notes.txt ./*.apk
+          echo "Release $TAG publicada."
